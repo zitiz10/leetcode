@@ -1,9 +1,9 @@
 class Solution {
 public:
     int missingInteger(vector<int>& nums) {
-        unordered_map<int, int> mp;
+        unordered_set<int> set;
         for (int x : nums) {
-            mp[x]++;
+            set.insert(x);
         }
         int sum = nums[0];
         for (int i = 1; i < nums.size(); i++) {
@@ -12,7 +12,7 @@ public:
             } else
                 break;
         }
-        while (mp.find(sum) != mp.end()) {
+        while (set.count(sum)) {
             sum++;
         }
         return sum;
