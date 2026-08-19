@@ -2,6 +2,7 @@ class Solution {
 public:
     int carFleet(int target, vector<int>& pos, vector<int>& speed) {
         int n = pos.size();
+        
         vector<pair<int, double>> cars;
         for (int i = 0; i < n; i++) {
             double time = (double)(target - pos[i]) / speed[i];
