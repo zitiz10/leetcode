@@ -1,18 +1,12 @@
 class Solution {
 public:
     bool uniformArray(vector<int>& nums) {
-        int odd = INT_MAX;
-        for (int num : nums) {
-            if (num % 2 == 1) {
-                odd = min(odd, num);
-            }
+        int mn = nums[0], oddcnt = 0;
+        for (int n : nums) {
+            mn = min(mn, n);
+            if (n % 2 == 1)
+                oddcnt++;
         }
-        if (odd == INT_MAX)
-            return true;
-        for (int num : nums) {
-            if (num % 2 == 0 && num <= odd)
-                return false;
-        }
-        return true;
+        return mn % 2 || oddcnt == 0;
     }
 };
